@@ -1,4 +1,4 @@
-package com.example.Bikbaev4219;
+package com.example.Bikbaev4219.dto;
 
 public class QuizResult {
     public boolean success;

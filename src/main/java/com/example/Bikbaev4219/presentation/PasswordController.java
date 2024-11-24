@@ -1,5 +1,7 @@
-package com.example.Bikbaev4219;
+package com.example.Bikbaev4219.presentation;
 
+import com.example.Bikbaev4219.PasswordConfig;
+import com.example.Bikbaev4219.PasswordGenerator;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,13 +13,13 @@ import org.springframework.web.server.ResponseStatusException;
 public class PasswordController {
     @GetMapping("getPassword")
     public String generatePassword() {
-        PasswordGenerator passwordGenerator = new PasswordGenerator();
+        PasswordGenerator passwordGenerator = new PasswordGenerator(new PasswordConfig.PasswordAlphabet("abcd"));
         return  passwordGenerator.generate(10);
     }
 
     @PostMapping("getPassword")
     public String generateLengthPassword(@RequestParam("length") String lengthParam) {
-        PasswordGenerator passwordGenerator = new PasswordGenerator();
+        PasswordGenerator passwordGenerator = new PasswordGenerator(new PasswordConfig.PasswordAlphabet("abcd"));
         try {
             int length = Integer.parseInt(lengthParam);
 

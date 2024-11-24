@@ -7,7 +7,7 @@ public class FlightInfo {
     private String gate;
 
     // constructor
-    FlightInfo(int id, String from, String to, String gate) {
+    public FlightInfo(int id, String from, String to, String gate) {
         this.id = id;
         this.from = from;
         this.to = to;

@@ -1,17 +1,23 @@
 package com.example.Bikbaev4219;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.Random;
+
 @Component
 public class PasswordGenerator {
-    private static final String CHARACTERS =
-            "abcdefghijklmnopqrstuvwxyz0123456789";
     private static final Random random = new Random();
+    private final PasswordConfig.PasswordAlphabet alphabet;
+    public PasswordGenerator(@Autowired
+                             PasswordConfig.PasswordAlphabet alphabet) {
+        this.alphabet = alphabet;
+    }
     public String generate(int length) {
+        String allCharacters = alphabet.getCharacters(); // get the characters from the bean
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int index = random.nextInt(CHARACTERS.length());
-            result.append(CHARACTERS.charAt(index));
+            int index = random.nextInt(allCharacters.length());
+            result.append(allCharacters.charAt(index));
         }
         return result.toString();
     }

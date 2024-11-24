@@ -1,5 +1,6 @@
-package com.example.Bikbaev4219;
+package com.example.Bikbaev4219.presentation;
 
+import com.example.Bikbaev4219.UserInfo;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class UserController {
+public class UserInfoController {
 //    @PostMapping("/user")
 //    public String userStatus(@RequestBody UserInfo user) {
 //        if (user.isEnabled()) {
@@ -20,7 +21,7 @@ public class UserController {
 //        }
 //    }
 
-    @PostMapping("/user")
+    @PostMapping("/user-info")
     public String userStatus(@RequestBody List<UserInfo> userList) {
         return String.format("Added %d users", userList.size());
     }
